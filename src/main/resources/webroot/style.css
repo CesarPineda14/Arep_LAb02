@@ -1,0 +1,70 @@
+h1 {
+    text-align: center;
+    font-size: 50px;
+}
+
+.ingresoDatos {
+    font-size: 24px;
+    margin-left: 200px; 
+    margin-top: 20px; 
+}
+
+body {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; 
+}
+
+main {
+    flex: 1; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.Format {
+    display: flex;
+    align-items: center;
+    gap: 30px; 
+    margin-top: 50px; 
+}
+
+#Image {
+    width: 250px; 
+    height: 250px; 
+    border-radius: 50%; 
+    overflow: hidden; 
+    background-size: cover; 
+    background-position: center; 
+}
+
+.driverInfo {
+    font-family: Arial, sans-serif;
+    font-size: 26px;
+}
+
+footer {
+    text-align: center; 
+    
+    background-color:red; 
+    width: 100%; 
+    margin-top: auto;
+}
+
+footer p {
+    margin: 0; 
+    font-size: 16px;
+    color: #333; 
+}
+
+.skewY{
+    transition: .5s, color .10s;
+        -webkit-transition: .5s, color .10s;
+        -moz-transition: .5s, color .10s;
+}
+.skewY:hover{
+    transform: skewY(1.07rad);
+        -webkit-transform: skewY(15deg);
+        -moz-transform: skewY(15deg);
+}

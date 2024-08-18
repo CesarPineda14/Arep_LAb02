@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>F1 Guide</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>F1 Drivers 2024</h1>
+    <div class="ingresoDatos">
+        <form action="/hello">
+            <label for="name">Driver name:</label><br>
+            <input type="text" id="name" name="name" value=""><br><br>
+            <input  class="skewY" type="button" value="send" onclick="loadPostMsg()">
+        </form> 
+    </div>
+    <main>
+        <div class="Format">
+            <div id="Image"></div>
+            <div id="driverInfo" class="driverInfo">
+                <p>Name: <span id="driverName"></span></p>
+                <p>Wins: <span id="driverWins"></span></p>
+                <p>Number: <span id="driverNumber"></span></p>
+                <p>Age: <span id="driverAge"></span></p>
+                <p>Scuderia: <span id="driverScuderia"></span></p>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2024 F1 Drivers By Cesar Pineda.</p>
+    </footer>
+</body>
+</html>
+
+<script>
+    function loadPostMsg() {
+        let nameVar = document.getElementById("name").value;
+        const xhttp = new XMLHttpRequest();
+        xhttp.onload = function () {
+            try {
+                if (this.response.endsWith("]")) {
+                    jsonfixed = this.response;
+                } else {
+                    jsonfixed = this.response + "]"
+                }
+                console.log("arreglo: " + jsonfixed)
+                const responseArray = JSON.parse(jsonfixed);
+                if (responseArray.length > 0) {
+                    const driver = responseArray[0];
+                    document.getElementById("driverName").innerText = driver.name;
+                    document.getElementById("driverWins").innerText = driver.wins;
+                    document.getElementById("driverNumber").innerText = driver.number;
+                    document.getElementById("driverAge").innerText = driver.age;
+                    document.getElementById("driverScuderia").innerText = driver.scuderia;
+                    loadGetmsg(driver.image);
+                } else {
+                    document.getElementById("driverName").innerText = "No encontrado";
+                    document.getElementById("driverWins").innerText = "No encontrado";
+                    document.getElementById("driverNumber").innerText = "No encontrado";
+                    document.getElementById("driverAge").innerText = "No encontrado";
+                    document.getElementById("driverScuderia").innerText = "No encontrado";
+                    loadGetmsg("/driversPics/default.jpg");
+                }
+            } catch (error) {
+                console.error("Error al parsear el JSON: ", error);
+                document.getElementById("getrespmsg").innerHTML = "Error al obtener datos.";
+            }
+        };
+        xhttp.open("POST", "/");
+        xhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+        xhttp.send("name=" + nameVar);
+    }
+
+    function loadGetmsg(file) {
+        const xhttp = new XMLHttpRequest();
+        xhttp.onload = function () {
+            const contentType = this.getResponseHeader("Content-Type");
+
+
+            if (this.response instanceof Blob) {
+                this.response.text().then(text => {
+                    if (contentType.startsWith("image/")) {
+                        const img = document.createElement(("img"))
+                        img.src = URL.createObjectURL(this.response)
+                        document.getElementById("Image").innerHTML = "";
+                        document.getElementById("Image").appendChild(img);
+
+                    }
+                })
+
+            }
+        }
+        xhttp.responseType = 'blob';
+        xhttp.open("GET", file);
+        xhttp.send();
+    }
+</script>
