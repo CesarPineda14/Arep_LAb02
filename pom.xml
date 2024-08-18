@@ -25,7 +25,6 @@
 
     <build>
         <plugins>
-            <!-- Maven Compiler Plugin -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
@@ -35,7 +34,6 @@
                     <target>21</target>
                 </configuration>
             </plugin>
-            <!-- Maven Assembly Plugin for creating a jar-with-dependencies -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-assembly-plugin</artifactId>
@@ -62,5 +60,4 @@
             </plugin>
         </plugins>
     </build>
-
 </project>

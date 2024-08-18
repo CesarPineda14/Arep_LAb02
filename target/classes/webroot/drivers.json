@@ -115,7 +115,7 @@
         "name": "Valtteri Bottas",
         "number": 77,
         "age": 34,
-        "scuderia": "Alfa Romeo F1 Team Stake",
+        "scuderia": "Kick Sauber",
         "wins": 10,
         "image":"/driversPics/bottas.jpg"
     },
@@ -123,7 +123,7 @@
         "name": "Zhou Guanyu",
         "number": 24,
         "age": 25,
-        "scuderia": "Alfa Romeo F1 Team Stake",
+        "scuderia": "Kick Sauber",
         "wins": 0,
         "image":"/driversPics/zhou.jpg"
     },
@@ -147,7 +147,7 @@
         "name": "Yuki Tsunoda",
         "number": 22,
         "age": 24,
-        "scuderia": "Scuderia AlphaTauri",
+        "scuderia": "Visa Cash App RB Formula One Team",
         "wins": 0,
         "image":"/driversPics/tsunoda.jpg"
     },
@@ -155,7 +155,7 @@
         "name": "Daniel Ricciardo",
         "number": 3,
         "age": 35,
-        "scuderia": "Scuderia AlphaTauri",
+        "scuderia": "Visa Cash App RB Formula One Team",
         "wins": 8,
         "image":"/driversPics/ricciardo.jpg"
     }
