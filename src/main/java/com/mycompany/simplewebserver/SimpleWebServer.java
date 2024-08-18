@@ -3,8 +3,10 @@ package com.mycompany.simplewebserver;
 import java.io.*;
 import java.net.*;
 import java.util.concurrent.*;
-import org.json.JSONArray;
-import org.json.JSONObject;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonParser;
+import com.google.gson.JsonObject;
 
 public class SimpleWebServer {
 
@@ -149,13 +151,12 @@ class ClientHandler implements Runnable {
         String name = parseNameFromPostData(postData.toString());
         System.out.println("nombre: " + name);
         String jsonResponse = filterJsonData(name);
-
+        System.out.println("Response:" + jsonResponse);
         out.println("HTTP/1.1 200 OK");
         out.println("Content-Type: application/json");
         out.println("Content-Length: " + jsonResponse.length());
         out.println();
         out.flush();
-        System.out.println("Response:" + jsonResponse);
         out.println(jsonResponse);
         out.flush();
     }
@@ -171,32 +172,41 @@ class ClientHandler implements Runnable {
     }
 
     private String filterJsonData(String name) {
-        File jsonFile = new File(SimpleWebServer.WEB_ROOT, "drivers.json");
-        StringBuilder jsonResponse = new StringBuilder();
+    File jsonFile = new File(SimpleWebServer.WEB_ROOT, "drivers.json");
+    StringBuilder jsonResponse = new StringBuilder();
 
-        try (BufferedReader reader = new BufferedReader(new FileReader(jsonFile))) {
-            String line;
-            StringBuilder jsonContent = new StringBuilder();
+    try (BufferedReader reader = new BufferedReader(new FileReader(jsonFile))) {
+        StringBuilder jsonContent = new StringBuilder();
+        String line;
 
-            while ((line = reader.readLine()) != null) {
-                jsonContent.append(line);
-            }
-
-            JSONArray jsonArray = new JSONArray(jsonContent.toString());
-            JSONArray filteredArray = new JSONArray();
-
-            for (int i = 0; i < jsonArray.length(); i++) {
-                JSONObject jsonObject = jsonArray.getJSONObject(i);
-                if (jsonObject.getString("name").contains(name)) {
-                    filteredArray.put(jsonObject);
-                }
-            }
-            jsonResponse.append(filteredArray.toString());
-        } catch (IOException e) {
-            e.printStackTrace();
+        while ((line = reader.readLine()) != null) {
+            jsonContent.append(line);
         }
 
-        return jsonResponse.toString();
+        System.out.println("JSON Content Read: " + jsonContent.toString());
+
+        JsonElement jsonElement = JsonParser.parseString(jsonContent.toString());
+        JsonArray jsonArray = jsonElement.getAsJsonArray();
+        JsonArray filteredArray = new JsonArray();
+
+        System.out.println("Parsed JSON Array: " + jsonArray);
+
+        for (JsonElement element : jsonArray) {
+            JsonObject jsonObject = element.getAsJsonObject();
+            if (jsonObject.get("name").getAsString().contains(name)) {
+                filteredArray.add(jsonObject);
+            }
+        }
+
+        jsonResponse.append(filteredArray.toString());
+    } catch (IOException e) {
+        System.err.println("IO Exception while reading JSON file: " + e.getMessage());
+        e.printStackTrace();
+    } catch (Exception e) {
+        System.err.println("Exception while processing JSON data: " + e.getMessage());
+        e.printStackTrace();
     }
 
+    return jsonResponse.toString();
+}
 }
