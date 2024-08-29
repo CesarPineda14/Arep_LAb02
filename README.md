@@ -15,13 +15,7 @@ git clone https://github.com/CesarPineda14/Arep_LAb01.git
 2. Compilar el proyecto:
   Navega al directorio del proyecto y compila el código fuente usando javac:
 
-```
-cd 
-mvn clean compile
-```
 
-3. Empaqutar el proyecto:
-   
 
   
   
