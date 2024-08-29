@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Simple Web App</title>
+        <link rel="stylesheet" href="/styles.css">
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                margin: 0;
+                padding: 0;
+                display: flex;
+                flex-direction: column;
+                min-height: 100vh;
+            }
+            h1 {
+                background-color: #4CAF50;
+                color: white;
+                text-align: center;
+                padding: 20px;
+                margin: 0;
+            }
+            .dinamicas, .estaticas {
+                margin: 20px;
+                padding: 20px;
+                border: 1px solid #ddd;
+                border-radius: 5px;
+            }
+            ul {
+                list-style-type: none;
+                padding: 0;
+            }
+            li {
+                margin: 10px 0;
+            }
+            a {
+                color: #4CAF50;
+                text-decoration: none;
+            }
+            a:hover {
+                text-decoration: underline;
+            }
+            footer {
+                text-align: center;
+
+                background-color:red;
+                width: 100%;
+                margin-top: auto;
+            }
+
+            footer p {
+                margin: 0;
+                font-size: 16px;
+                color: #333;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Página de prueba Microframeworks WEB</h1>
+        <div class="dinamicas">
+            <p>Enlaces a páginas dinámicas generadas con funciones lambda:</p>
+            <ul>
+                <li><a href="App/hello?name=World" target="_blank">/hello?name=World</a></li>
+                <li><a href="App/pi" target="_blank">/pi</a></li>
+                <li><a href="App/prueba?name=Juan" target="_blank">/prueba?name=Juan</a></li>
+            </ul>
+        </div>
+        <div class="estaticas">
+            <p>Enlaces a páginas estaticas:</p>
+            <ul>
+                <li><a href="conexion.html" target="_blank">F1 Drivers 2024</a></li>
+            </ul>
+        </div>
+        <footer>
+            <p>&copy; Microframeworks WEB By Cesar Pineda.</p>
+        </footer>
+    </body>
+</html>
