@@ -1,1 +1,111 @@
-/target/
+# Compiled class files
+*.class
+
+# Log files
+*.log
+
+# BlueJ files
+*.ctxt
+
+# Mobile Tools for Java (J2ME)
+.mtj.tmp/
+
+# Package Files #
+*.jar
+*.war
+*.ear
+
+# NetBeans files
+nbproject/private/
+build/
+nbbuild/
+dist/
+nblibraries.properties
+
+# NetBeans git ignore specific files
+**/nbproject/private/**
+
+# Virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
+hs_err_pid*
+
+# Maven files
+target/
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+dependency-reduced-pom.xml
+buildNumber.properties
+.mvn/timing.properties
+
+# Gradle files
+.gradle/
+build/
+
+# Eclipse files
+.project
+.classpath
+.cproject
+.settings/
+.bak
+.recommenders/
+
+# IDEA files
+.idea/
+*.iml
+*.iws
+out/
+
+# VS Code files
+.vscode/
+
+# macOS files
+.DS_Store
+
+# Windows files
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Linux files
+*~
+
+# Other generated files
+*.log
+*.swp
+*.swo
+*.bak
+*.tmp
+
+# Java artifacts
+*.jar
+*.war
+*.ear
+*.javadoc/
+
+# Ignore classpath file
+.classpath
+
+# Ignore environment config
+.env
+.env.local
+.env.*.local
+
+# Application-specific files
+config/*.json
+config/*.xml
+
+# Exclude all files except src/ and resources/
+*
+!/src/
+!/resources/
+
+# Exclude build artifacts in target/ folder
+target/
+
+# Ignore JetBrains IDEs .idea/ folder and misc.xml file
+.idea/
+.idea/misc.xml
+.idea/modules.xml
+*.iml
