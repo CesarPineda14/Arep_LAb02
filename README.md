@@ -85,8 +85,23 @@ SimpleWebFramework is a lightweight Java-based web framework designed to simplif
 * Unit tests are located in the 'src/test/java' directory.
 * Run tests using Maven:
   ```
-    
        mvn test
 
   ```
+  
+![image](https://github.com/user-attachments/assets/38d5d70f-0448-4948-b986-fa0b7179c8d2)
+
+
+
+![image](https://github.com/user-attachments/assets/b2993b8b-b598-4416-bdaf-abc0e1b1919d)
+
+
+
+![image](https://github.com/user-attachments/assets/9240b535-65b7-4847-b7d5-7869ad7a1382)
+
+
+
+![image](https://github.com/user-attachments/assets/daa5c99a-af7d-40e1-8691-e42ded570aac)
+
+
   
